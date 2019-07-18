@@ -1,10 +1,9 @@
 function p(obj,heading){ 
 
 	// print @obj to the console log with optional @heading string
-	if(!v) return;
 
-	if(heading) console.log(heading + ':');
-	console.log(obj);
+	if(heading) console.log(heading + ':',obj);
+	else console.log(obj);
 } 
 
 function redirect(url){
@@ -27,10 +26,10 @@ function empty(obj){
 
 	// returns true if object (string, array, or object) is undefined, null, or empty
 
-	if(obj===undefined || obj===null || obj==="") return true;
-	else if(obj.constructor===Object && Object.keys(obj).length<=0) return true; 
-	else if(obj.constructor===Array && obj.length<=0) return true;
-	else if(obj==void 0) return true;
+	if(obj === undefined || obj === null || obj === "") return true;
+	else if(obj.constructor === Object && Object.keys(obj).length <= 0) return true; 
+	else if(obj.constructor === Array && obj.length <= 0) return true;
+	else if(obj == void 0) return true;
 	return false;
 } 
 
@@ -244,7 +243,7 @@ function scrapeTags(str,tag){
 	    return v.textContent || v.innerText || "";
 	});
 
-	return(res);	
+	return res;	
 } 
 
 function setCookie(cname, cvalue, exhrs) {
@@ -480,16 +479,16 @@ function dayOfMonth(){
 }
 		
 function todaysDate(){
-	/*
-		todaysDate() : returns the current date
-		---------------------------------------
-	*/
+	
+	// return the current date
+
 	var d = new Date();
 	var month = d.getMonth()+1;
 	var day = d.getDate();
 	var theDate =
-	    ((''+month).length<2 ? '' : '') + month + '/' +
-	    ((''+day).length<2 ? '0' : '') + day + '/' + d.getFullYear();
+	    ((''+month).length < 2 ? '' : '') + month + '/' +
+	    ((''+day).length < 2 ? '0' : '') + day + '/' + d.getFullYear();
+
 	return theDate;	
 } 	
 
@@ -522,7 +521,7 @@ function getWeekDay(dayOfWeek,offset) {
 
 	date.setDate(exp);
 
-	return(date);
+	return date;
 } 
 
 function fromNow(timeStr){
