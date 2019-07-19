@@ -40,6 +40,23 @@ function deepClone(obj){
 	return JSON.parse(JSON.stringify(obj));
 }
 
+function ready(callback){
+
+	// viable analogue for jQuery's $(document).ready()
+	//
+	// @callback - function to fire after document has loaded
+	// copypasta'd from https://stackoverflow.com/questions/799981/document-ready-equivalent-without-jquery
+
+    // in case the document is already rendered
+    if(document.readyState!='loading') callback();
+    // modern browsers
+    else if(document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
+    // IE <= 8
+    else document.attachEvent('onreadystatechange', function(){
+        if (document.readyState=='complete') callback();
+    });
+}
+
 function validate(rules, data){
 
     /*
