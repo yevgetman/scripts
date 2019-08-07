@@ -263,6 +263,41 @@ function scrapeTags(str,tag){
 	return res;	
 } 
 
+function cache(key,value) {
+
+	// commit an item to JS localStorage preserving type if item an Object or Array
+	// dependencies - JS localStorage
+
+	value = value || null;
+
+	if(value === null){ // get an object
+
+		if(typeof value === 'object'){
+
+			value = JSON.parse(
+
+				localStorage.getItem(key) ? localStorage.getItem(key) : '{}'
+			);
+
+			return value;
+
+		} return localStorage.getItem(key);
+
+	} else { 			// set an object
+
+		if(typeof value === 'object'){
+
+			localStorage.setItem(key, JSON.stringify(value));
+
+		} else {
+
+			localStorage.setItem(key, value);
+		} 
+
+		return true;
+	}
+}
+
 function setCookie(cname, cvalue, exhrs) {
 
     var d = new Date();
