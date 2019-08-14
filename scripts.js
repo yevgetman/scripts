@@ -723,3 +723,11 @@ function ordinalSuffix(n) {
     
     return n + "th";
 }
+
+function insertBefore(el, referenceNode) {
+    referenceNode.parentNode.insertBefore(el, referenceNode);
+}
+
+function insertAfter(el, referenceNode) {
+    referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+}
